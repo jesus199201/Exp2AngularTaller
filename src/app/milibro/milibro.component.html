@@ -1,0 +1,21 @@
+
+<h2> mi libro</h2>
+<ul class="Listado">
+  <li *ngFor="let libros of Listado" 
+  [class.selected]="libros === selectedLibros"
+  (click)="onSelect(libros)">
+    <span class="badge">{{libros.id}}</span> {{libros.name}}
+  </li>
+</ul>
+<div *ngIf="selectedLibros">
+<h2>{{ selectedLibros.name | uppercase }} Details</h2>
+<div><span>id: </span>{{selectedLibros.id}}</div>
+<div>
+  <label>name:
+    <input type = "text" [(ngModel)] = "selectedLibros.name" placeholder="name"/>
+ </label>
+  <label>precio:
+    <input type = "text" [(ngModel)] = "selectedLibros.precio" placeholder="precio"/>
+ </label>
+</div>
+</div>
